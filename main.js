@@ -15,9 +15,22 @@ window.onload = function() {
       contentType: false,
       processData: false,
       success: function(result) {
-        console.log(result)
+        addImage( result.file );
         form.find( 'input[type="file"]' ).val('');
       }
     })
   })
+
+  $.get( '/images', function( files ) {
+    files.forEach( addImage );
+  })
+
+  function addImage( path ) {
+    var img = document.createElement( 'img' );
+    img.src = path;
+    img.width = 100;
+    img.height = 100;
+    img.style.float = 'left';
+    $( '#image_list' ).prepend( img );
+  }
 }

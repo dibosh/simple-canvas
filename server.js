@@ -2,6 +2,8 @@
 
 const express = require( 'express' );
 const multer = require( 'multer' );
+const fs = require( 'fs' );
+const junk = require( 'junk' );
 let app = express();
 
 app.use( express.static('./') );
@@ -34,16 +36,32 @@ let upload = multer( {
   fileFilter: filter
 }).single( 'upload' );
 
+/* ===============================
+  ROUTE
+ ============================== */
+
 // route for file upload
 app.post( '/uploads', ( req, res ) => {
   upload( req, res, err => {
     if ( err ) {
       res.end( err )
     } else {
-      res.end( 'success' )
+      res.json( {
+        status: 'success',
+        file: req.protocol + '://' + req.get('host') + '/images/' + req.file.filename,
+      } )
     }
   })
 })
+
+app.get( '/images', ( req, res ) => {
+  let file_path = req.protocol + '://' + req.get('host') + '/images/';
+  let files = fs.readdirSync( './images/' );
+  files = files
+          .filter( junk.not ) // remove .DS_STORE etc
+          .map( f => file_path + f ); // map with url path
+  res.json( files );
+});
 
 // general route
 app.get( '/', ( req, res ) => {
