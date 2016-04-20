@@ -34,7 +34,7 @@ let upload = multer( {
   fileFilter: filter
 }).single( 'upload' );
 
-// post receiver for upload
+// route for file upload
 app.post( '/uploads', ( req, res ) => {
   upload( req, res, err => {
     if ( err ) {
@@ -45,7 +45,7 @@ app.post( '/uploads', ( req, res ) => {
   })
 })
 
-// root path
+// general route
 app.get( '/', ( req, res ) => {
   res.sendFile( __dirname + '/index.html' );
 })
