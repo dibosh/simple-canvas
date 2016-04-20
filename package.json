@@ -4,8 +4,17 @@
   "description": "package for js candidate test",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server.js"
   },
   "author": "jun",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "jquery": "^2.2.3",
+    "multer": "^1.1.0",
+    "nodemon": "^1.9.1"
+  },
+  "devDependencies": {
+
+  }
 }
