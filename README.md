@@ -1,3 +1,8 @@
+## To set up the environment dependencies
+```
+$ npm install
+```
+
 ## To run the node server
 
 ```
