@@ -16,8 +16,7 @@ let storage = multer.diskStorage({
   filename: (req, file, cb) => {
     let ext = file.originalname.split( '.' );
     ext = ext[ext.length - 1];
-    let name = file.originalname.replace( '.' + ext, '' );
-    cb(null,  name + '-' + Date.now() + '.' + ext);
+    cb(null, 'uploads-' + Date.now() + '.' + ext);
   }
 });
 
@@ -44,7 +43,7 @@ let upload = multer( {
 app.post( '/uploads', ( req, res ) => {
   upload( req, res, err => {
     if ( err ) {
-      res.end( err )
+      res.json( {status: 'failed', message: err} );
     } else {
       res.json( {
         status: 'success',

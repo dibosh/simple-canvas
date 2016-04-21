@@ -15,8 +15,12 @@ window.onload = function() {
       contentType: false,
       processData: false,
       success: function(result) {
-        addImage( result.file );
-        form.find( 'input[type="file"]' ).val('');
+        if ( result.status == 'success' ) {
+          addImage( result.file );
+          form.find( 'input[type="file"]' ).val('');
+        } else {
+          alert( result.message );
+        }
       }
     })
   })
