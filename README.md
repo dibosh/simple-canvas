@@ -13,6 +13,21 @@ Server is listening to port `8000`
 
 ## Instruction on file upload
 
-To allow file uploaded to node server, your form `enctype` has to be `multipart/form-data` and point your form action to `/uploads`
+## routes
+
+#### get uploaded images
+```
+/images
+```
+
+#### upload image to server
+```
+/uploads
+```
+
+
+To allow file uploaded to node server, your form has to be `multipart/form-data`
+
+
 The server only accepts `png` and `jpeg` file format
 
