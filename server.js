@@ -43,6 +43,7 @@ let upload = multer( {
 app.post( '/uploads', ( req, res ) => {
   upload( req, res, err => {
     if ( err ) {
+      console.log( err )
       res.json( {status: 'failed', message: err} );
     } else {
       res.json( {
