@@ -9,6 +9,14 @@ You will be given a HTML file with simple structure, and a server that allows yo
 
 Kindly showcase your best design pattern of JS structure that is easy to understand for team collaboration. You are encouraged to use only pure JavaScript. If your design pattern needed a library, you are allow to do so given a good reason. Try finishing this test in **one day** and send it back to us. If you are not able to finish, do send us whatever you have done, we will evaluate accordingly.
 
+Primary task
+- app should works as the specification required
+- code and flow should be properly documented
+- code present good structure, design pattern and modular
+
+Bonus
+- code written in functional and reactive way
+- build automated test for the app
 
 Please zipped your working folder with the name `<your name>-piktojstest`. The folder should contains everything we sent you, plus whatever file(s) you created. In addition, you could provide a `readme` to describe your design pattern or anything you wish to let us know. Have fun programming 😊
 
