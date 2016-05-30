@@ -44,11 +44,10 @@ app.post( '/uploads', ( req, res ) => {
   upload( req, res, err => {
     if ( err ) {
       console.log( err )
-      res.json( {status: 'failed', message: err} );
+      res.status(400).json( {message: err} );
     } else {
-      res.json( {
-        status: 'success',
-        file: req.protocol + '://' + req.get('host') + '/images/' + req.file.filename,
+      res.status(200).json( {
+        file: req.protocol + '://' + req.get('host') + '/images/' + req.file.filename
       } )
     }
   })
