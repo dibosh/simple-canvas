@@ -49,8 +49,7 @@ Server is listening to port `8000`
 /uploads
 ```
 
-
-To allow file uploaded to node server, your `httprequest content type` has to be `multipart/form-data`
+Note that name of the file input has to be `upload` as this is what the server will be reading from
 
 
 The server only accepts `png` and `jpeg` file format
