@@ -15,11 +15,11 @@ Kindly showcase your best design pattern of JS structure that is easy to underst
 - app should works as the specification required
 - code and flow should be properly documented
 - code present good structure, design pattern and modular
-- JS code is loaded using module dependency library such as RequireJS or Webpack
 
 **Bonus**
 - code written in functional and reactive way
 - build automated test for the app
+- JS code is loaded using module dependency library such as RequireJS, CommonJS or Webpack
 
 Please zipped your working folder with the name `<your name>-piktojstest`. The folder should contains everything we sent you, plus whatever file(s) you created. In addition, you could provide a `readme` to describe your design pattern or anything you wish to let us know. Have fun programming 😊
 
