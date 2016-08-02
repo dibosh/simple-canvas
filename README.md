@@ -1,19 +1,21 @@
 ## Instructions
 
-You are require to build a single page application that allows user to add text and image into canvas. Below are the requirements for the application:
-- user can add, edit and remove text from canvas
-- user can upload image to images list
-- user can move image and text around canvas.
+You are require to build a single page application that allows user to add text and image into canvas. Below are the basic requirements for the application:
 
-You will be given a HTML file with simple structure, and a server that allows you to upload and retrieve image. Instruction on how to run the server is included
+- user can *upload image* to images list
+- user can *add, edit and remove image and text* to the canvas
+
+_Note: the canvas element type is plain HTML <div>, not <canvas>_
+
+You will be given a HTML file with simple structure, and a server that allows you to upload and retrieve image. Instruction on how to run the server is included below.
 
 Kindly showcase your best design pattern of JS structure that is easy to understand for team collaboration. You are encouraged to use only pure JavaScript. If your design pattern needed a library, you are allow to do so given a good reason. Try finishing this test in **one day** and send it back to us. If you are not able to finish, do send us whatever you have done, we will evaluate accordingly.
-
 
 **Primary task**
 - app should works as the specification required
 - code and flow should be properly documented
 - code present good structure, design pattern and modular
+- JS code is loaded using module dependency library such as RequireJS or Webpack
 
 **Bonus**
 - code written in functional and reactive way
@@ -53,4 +55,3 @@ Note that name of the file input has to be `upload` as this is what the server w
 
 
 The server only accepts `png` and `jpeg` file format
-
