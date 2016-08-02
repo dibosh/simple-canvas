@@ -5,7 +5,7 @@ You are require to build a single page application that allows user to add text 
 - user can *upload image* to images list
 - user can *add, edit and remove image and text* to the canvas
 
-_Note: the canvas element type is plain HTML <div>, not <canvas>_
+_Note: the canvas element type is plain HTML `<div>`, not `<canvas>`_
 
 You will be given a HTML file with simple structure, and a server that allows you to upload and retrieve image. Instruction on how to run the server is included below.
 
