@@ -39,11 +39,13 @@ html, body {
 	width: 50px;
 	height: 50px;
 	margin-right: 5px;
+	margin-bottom: 5px;
 	float: left;
 	overflow: hidden;
 }
 
 .assets .image-component-panel ul li img {
+	cursor: pointer;
 	width: 100%;
 	height: 100%;
 }
