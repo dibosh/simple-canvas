@@ -57,3 +57,11 @@ html, body {
 .item.selected {
   border-color: blue;
 }
+
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: block !important;
+}
