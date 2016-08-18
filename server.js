@@ -1,72 +1,73 @@
-'use strict'
+'use strict';
 
-const express = require( 'express' );
-const multer = require( 'multer' );
-const fs = require( 'fs' );
-const junk = require( 'junk' );
-let app = express();
+var express = require('express');
+var multer = require('multer');
+var fs = require('fs');
+var junk = require('junk');
+var app = express();
 
-app.use( express.static('./') );
+app.use(express.static('./'));
 
 // define file name and destination to save
-let storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, __dirname +  '/images')
+var storage = multer.diskStorage({
+  destination: function destination(req, file, cb) {
+    cb(null, __dirname + '/images');
   },
-  filename: (req, file, cb) => {
-    let ext = file.originalname.split( '.' );
+  filename: function filename(req, file, cb) {
+    var ext = file.originalname.split('.');
     ext = ext[ext.length - 1];
     cb(null, 'uploads-' + Date.now() + '.' + ext);
   }
 });
 
 // define what file type to accept
-let filter = ( req, file, cb ) => {
-  if ( file.mimetype == 'image/jpeg' || file.mimetype == 'image/png' ) {
-    cb( null, true );
+var filter = function filter(req, file, cb) {
+  if (file.mimetype == 'image/jpeg' || file.mimetype == 'image/png') {
+    cb(null, true);
   } else {
-    cb( 'Failed: format not supported' );
+    cb('Failed: format not supported');
   }
-}
+};
 
 // set multer config
-let upload = multer( {
+var upload = multer({
   storage: storage,
   fileFilter: filter
-}).single( 'upload' );
+}).single('upload');
 
 /* ===============================
-  ROUTE
+ ROUTE
  ============================== */
 
 // route for file upload
-app.post( '/uploads', ( req, res ) => {
-  upload( req, res, err => {
-    if ( err ) {
-      console.log( err )
-      res.status(400).json( {message: err} );
+app.post('/uploads', function (req, res) {
+  upload(req, res, function (err) {
+    if (err) {
+      console.log(err);
+      res.status(400).json({ message: err });
     } else {
-      res.status(200).json( {
+      res.status(200).json({
         file: req.protocol + '://' + req.get('host') + '/images/' + req.file.filename
-      } )
+      });
     }
-  })
-})
+  });
+});
 
-app.get( '/images', ( req, res ) => {
-  let file_path = req.protocol + '://' + req.get('host') + '/images/';
-  let files = fs.readdirSync( './images/' );
-  files = files
-          .filter( junk.not ) // remove .DS_STORE etc
-          .map( f => file_path + f ); // map with url path
-  res.json( files );
+app.get('/images', function (req, res) {
+  var file_path = req.protocol + '://' + req.get('host') + '/images/';
+  var files = fs.readdirSync('./images/');
+  files = files.filter(junk.not) // remove .DS_STORE etc
+    .map(function (f) {
+      return file_path + f;
+    }); // map with url path
+  res.json(files);
 });
 
 // general route
-app.get( '/', ( req, res ) => {
-  res.sendFile( __dirname + '/index.html' );
-})
+app.get('/', function (req, res) {
+  res.sendFile(__dirname + '/index.html');
+});
 
-var server = app.listen( 8000, _ => {
-  console.log( 'server started. listening to 8000' );
-})
+var server = app.listen(8000, function (_) {
+  console.log('server started. listening to 8000');
+});
