@@ -9,36 +9,49 @@
 <body>
 <!-- side pane -->
 <div class="sidepane col-sm-2 col-md-4 col-lg-4">
-  <form role="form" method="post" enctype="multipart/form-data" action="/uploads">
-    <div class="form-group">
-      <label for="upload">Choose a file</label>
-      <input type="file" class="form-control" name="upload" id="upload">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Asset Upload</h3>
     </div>
-    <button type="submit" id="submit" class="btn btn-default">Upload</button>
-    <div class="alert alert-success" style="display: none" role="alert" id="success-alert"></div>
-    <div class="alert alert-danger" style="display: none" role="alert" id="failure-alert"></div>
-  </form>
-  <hr />
-  <div class="assets">
-    <h3>Assets</h3>
-    <div class="text">
-        <h4>Text</h4>
-        <button id="addText" class="btn btn-default">Add Text</button>
+    <div class="panel-body">
+      <form id="file-upload-form" role="form" method="post" enctype="multipart/form-data" action="/uploads">
+        <div class="form-group">
+          <label for="upload">Choose a file</label>
+          <input type="file" class="form-control" name="upload" id="upload">
+        </div>
+        <button type="submit" id="submit" class="btn btn-default">Upload</button>
+        <p class="text-success" style="display: none" id="success-alert"></p>
+
+        <p class="text-danger" style="display: none" id="failure-alert"></p>
+      </form>
     </div>
-    <div class="image">
-        <h4>Images</h4>
-        <ul class="list-unstyled">
-            <!-- List of images here -->
-            <!-- <li><img src="images/sample.jpeg" class="img-rounded" /></li> -->
+  </div>
+  <div class="panel panel-default assets">
+    <div class="panel-heading">
+      <h3 class="panel-title">Assets</h3>
+      <small>Click on any item to add that to canvas</small>
+    </div>
+    <div class="panel-body">
+      <div class="text-component-panel">
+        <h5>Add Text</h5>
+      </div>
+      <hr/>
+      <div class="image-component-panel">
+        <h5>Add Images</h5>
+        <ul class="list-unstyled" id="image-list">
+          <h5 class="help-block">
+            <small class="text-muted">Upload image files to make them available for adding in canvas</small>
+          </h5>
         </ul>
+      </div>
     </div>
   </div>
 </div>
 <!-- canvas -->
 <div class="canvas col-sm-8 col-md-8 col-lg-8">
-    <div class="block">
-        <!-- Add images and texts to here -->
-    </div>
+  <div class="block">
+    <!-- Add images and texts to here -->
+  </div>
 </div>
 
 </body>
