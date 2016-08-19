@@ -50,7 +50,7 @@ html, body {
 	height: 100%;
 }
 
-.canvas .block {
+.main .canvas {
 	position: relative;
 	width: 600px;
 	height: 600px;
@@ -66,12 +66,4 @@ html, body {
 
 .item.selected {
 	border-color: blue;
-}
-
-.hide {
-	display: none !important;
-}
-
-.show {
-	display: block !important;
 }
