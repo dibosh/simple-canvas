@@ -93,15 +93,17 @@ html, body {
 	margin-right: 5px;
 }
 
-.component-content.text-area {
-	text-align: center;
-	resize: none;
-	padding: 20px;
-	border: none;
+.component.text {
+	width: auto;
+	height: auto;
 }
 
-.component.text {
-	height: 120px;
+.component-content.text-area {
+	text-align: center;
+	padding: 20px;
+	border: none;
+	width: auto;
+	height: auto;
 }
 
 .font-h1 {
